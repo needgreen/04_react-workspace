@@ -51,15 +51,58 @@
   -->
 
     <div id="root1"></div>
-    <script type="text/babel"></script>
+    <script type="text/babel">
+      // 클래스 컴포넌트 만들어보기
+      class ClassComp extends React.Component {
+        render() {
+          // 화면에 표현할 엘리먼트를 반환 // 여러개의 엘리먼트라면 단일 태그<></>로 묶어줘야 함
+          return (
+            <>
+              <h1>Hello</h1>
+              <h1>Class Component</h1>
+            </>
+          );
+        }
+      }
+      ReactDOM.createRoot(document.querySelector("#root1")).render(
+        <ClassComp />
+      );
+    </script>
     <hr />
 
     <div id="root2"></div>
-    <script type="text/babel"></script>
+    <script type="text/babel">
+      //함수형 컴포넌트 만들어보기 : 함수 선언식, 함수 표현식 모두 사용 가능
+      // function 함수명() {}
+      const FunctionComp = () => {
+        // 함수에 표현할 엘리먼트 반환
+        return (
+          <div>
+            <h1>Hello</h1>
+            <h1>Function Component</h1>
+          </div>
+        );
+      };
+      ReactDOM.createRoot(document.querySelector("#root2")).render(
+        <FunctionComp />
+      );
+    </script>
     <hr />
 
     <div id="root3"></div>
-    <script type="text/babel"></script>
+    <script type="text/babel">
+      // 컴포넌트 합성 :  여러 컴포넌트 조합해서 하나의 컴포넌트로 새롭게 구성
+      function App() {
+        // App 이라는 새로운 컴포넌트
+        return (
+          <>
+            <ClassComp />
+            <FunctionComp />
+          </>
+        );
+      }
+      ReactDOM.createRoot(document.querySelector("#root3")).render(<App />);
+    </script>
     <hr />
   </body>
 </html>
