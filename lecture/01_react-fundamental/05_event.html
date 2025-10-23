@@ -54,19 +54,79 @@
 
     <div id="root1"></div>
     <script type="text/babel">
-      // ReactDOM.createRoot(document.querySelector('#root1')).render( xx );
+      function App() {
+        return (
+          <>
+            <button onClick={() => alert("첫번째 버튼 클릭!!")}>
+              첫번째 버튼
+            </button>
+          </>
+        );
+      }
+
+      ReactDOM.createRoot(document.querySelector("#root1")).render(<App />);
     </script>
     <hr />
 
     <div id="root2"></div>
     <script type="text/babel">
-      // ReactDOM.createRoot(document.querySelector('#root2')).render( xx );
+      function App() {
+        // 이벤트 핸들러 함수 정의
+        const handleClick = () => {
+          alert("두번째 버튼 클릭!!");
+        };
+        return (
+          <>
+            <button onClick={handleClick}>두번째 버튼</button>
+            {/* 함수() 호출식으로 사용하면 우선 실행됨*/}
+          </>
+        );
+      }
+
+      ReactDOM.createRoot(document.querySelector("#root2")).render(<App />);
     </script>
     <hr />
 
     <div id="root3"></div>
     <script type="text/babel">
-      // ReactDOM.createRoot(document.querySelector('#root3')).render( xx );
+      //이벤트 핸들러를 컴포넌트로 전달
+      function App() {
+        return (
+          <>
+            <button
+              className="warning"
+              handleClick={() => alert("경고! 경고!")}
+            >
+              경고창 출력
+            </button>
+
+            <button className="secondary" handleClick={() => prompt("입력창")}>
+              입력창 출력
+            </button>
+
+            <button type="submit" handleClick={(e) => e.preventDefault()}>
+              회원가입
+            </button>
+          </>
+        );
+      }
+
+      // 버튼 함수의 속성 정의 // 재사용 가능한 컴포넌트화
+      const Button = ({
+        type = "button",
+        className = "primary",
+        handleClick,
+        children,
+      }) => {
+        // {type: xx, className: xx, handleClick: xx, children: xx}
+        return (
+          <button type={type} className={className} onClick={handleClick}>
+            {children}
+          </button>
+        );
+      };
+
+      ReactDOM.createRoot(document.querySelector("#root3")).render(<App />);
     </script>
     <hr />
   </body>
