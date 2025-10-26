@@ -34,7 +34,7 @@ function UserInfo() {
       <label htmlFor="userAge">
         나이:
         <input
-          type="text"
+          type="number"
           placeholder="나이 입력"
           id="userAge"
           name="userAge"
