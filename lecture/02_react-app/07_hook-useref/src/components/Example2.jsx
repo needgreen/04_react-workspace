@@ -11,6 +11,7 @@ function Example2() {
   const inputRef = useRef();
   useEffect(() => {
     // 3) 렌더링 후 실행 - input DOM 요소가 저장되어 있으므로 focus() 메소드 호출
+    // useEffect는 DOM이 생성된 후 실행됨
     inputRef.current.focus();
   }, []); // 빈 배열 = 컴포넌트 마운트 시 1회 실행
 
