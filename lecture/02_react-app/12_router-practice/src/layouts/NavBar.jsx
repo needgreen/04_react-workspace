@@ -1,18 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function NavBar() {
   return (
     <nav className="navbar">
       <ul className="navbar-list">
         <li>
-          <Link to="/">홈</Link>
+          <NavLink to="/">홈</NavLink>
         </li>
         <li>
-          <Link to="/about">소개</Link>
+          <NavLink to="/about">소개</NavLink>
         </li>
         <li>
-          <Link to="/menus">메뉴 목록</Link>
+          <NavLink to="/menus">메뉴 목록</NavLink>
         </li>
       </ul>
     </nav>
