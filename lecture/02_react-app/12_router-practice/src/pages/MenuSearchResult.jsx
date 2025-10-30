@@ -12,7 +12,7 @@ function MenuSearchResult() {
 
   useEffect(() => {
     setMenus(searchMenus(condition, keyword));
-  }, []);
+  }, [condition, keyword]);
 
   return (
     <>
